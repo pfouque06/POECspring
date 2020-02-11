@@ -1,0 +1,21 @@
+package org.eclipse.model;
+
+public class Adresse {
+
+	private int id;
+	private String rue;
+	private String codePostal;
+	private String ville;
+	public Adresse(int id, String rue, String codePostal, String ville) {
+		super();
+		this.id = id;
+		this.rue = rue;
+		this.codePostal = codePostal;
+		this.ville = ville;
+	}
+	@Override
+	public String toString() {
+		return "Adresse [" + id + "] rue=" + rue + ", codePostal=" + codePostal + ", ville=" + ville;
+	}
+	
+}

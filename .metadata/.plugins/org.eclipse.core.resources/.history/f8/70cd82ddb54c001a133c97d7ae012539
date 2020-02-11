@@ -1,0 +1,19 @@
+package org.eclipse.model;
+
+public class Personne {
+
+	private int id;
+	private String nom;
+	private Adresse adresse;
+	
+	public Personne(int id, String nom, Adresse adresse) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.adresse = adresse;
+	}
+
+	public void	afficher() {
+		System.out.println("Personne [" + id + "] nom=" + nom + " adresse=" + adresse );
+	}
+}

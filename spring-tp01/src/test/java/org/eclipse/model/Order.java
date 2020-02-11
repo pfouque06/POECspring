@@ -1,0 +1,38 @@
+package org.eclipse.model;
+
+public class Order {
+
+	private int id;
+	private int orderNumber;
+	private int montant;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getOrderNumber() {
+		return orderNumber;
+	}
+
+	public void setOrderNumber(int orderNumber) {
+		this.orderNumber = orderNumber;
+	}
+
+	public int getMontant() {
+		return montant;
+	}
+
+	public void setMontant(int montant) {
+		this.montant = montant;
+	}
+
+	@Override
+	public String toString() {
+		return "["+id+"] orderNumber=" + orderNumber + ", montant=" + montant;
+	}
+
+}

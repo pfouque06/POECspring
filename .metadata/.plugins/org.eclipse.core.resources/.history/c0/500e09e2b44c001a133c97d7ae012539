@@ -1,0 +1,24 @@
+package org.eclipse.model;
+
+public class Voiture {
+
+
+	private int id;
+	private String marque;
+	private String modele;
+	private String couleur;
+	
+	public Voiture(int id, String marque, String modele, String couleur) {
+		super();
+		this.id = id;
+		this.marque = marque;
+		this.modele = modele;
+		this.couleur = couleur;
+	}
+
+	public void afficher() {
+		System.out.println("Voiture [" + id  + "] marque=" + marque + ", modele=" + modele + ", couleur=" + couleur);
+	}
+	
+	
+}
