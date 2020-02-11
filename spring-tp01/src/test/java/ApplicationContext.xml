@@ -10,24 +10,24 @@
 		http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
 	<bean id="o1" class="org.eclipse.model.Order">
-	<!--  via getters/setters -->
+		<!-- via getters/setters -->
 		<property name="id" value="1"></property>
-		<property name="orderNumber" value="100"></property>	
-		<property name="montant" value="49"></property>	
+		<property name="orderNumber" value="100"></property>
+		<property name="montant" value="49"></property>
 	</bean>
 
 	<bean id="u1" class="org.eclipse.model.User">
-	<!--  via getters/setters -->
+		<!-- via getters/setters -->
 		<property name="id" value="1"></property>
-		<property name="nom">	
-				<value>Wick</value>
+		<property name="nom">
+			<value>Wick</value>
 		</property>
-		<property name="prenom">	
-				<value>John</value>
+		<property name="prenom">
+			<value>John</value>
 		</property>
 		<property name="order" ref="o1">
 		</property>
-		<property name="paymentMethods">	
+		<property name="paymentMethods">
 			<list>
 				<value>Cash</value>
 				<value>Visa</value>
