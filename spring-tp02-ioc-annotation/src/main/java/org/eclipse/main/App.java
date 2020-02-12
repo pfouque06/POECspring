@@ -16,24 +16,24 @@ public class App
         
         
         System.out.println();
-        System.out.println( "-------------" );
+        System.out.println( "------French.class-------" );
         
         ApplicationContext context = new ClassPathXmlApplicationContext("ApplicationContext.xml");
         European e = (European) context.getBean(French.class);
         e.saluer();
         
         System.out.println();
-        System.out.println( "-------------" );
+        System.out.println( "------English.class-------" );
         e = (European) context.getBean(English.class);
         e.saluer();
           
         System.out.println();
-        System.out.println( "-------------" );
+        System.out.println( "------\"fr\"-------" );
         e = (European) context.getBean("fr");
         e.saluer();
         
         System.out.println();
-        System.out.println( "-------------" );
+        System.out.println( "------\"en\"-------" );
         e = (European) context.getBean("en");
         e.saluer();
 
