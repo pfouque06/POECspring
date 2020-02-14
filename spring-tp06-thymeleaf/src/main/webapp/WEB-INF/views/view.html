@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>First Thymeleaf Page</title>
+</head>
+<body>
+	<p th:text="${ message }"></p>
+	<!-- affiche Hello World! -->
+	<p th:text="${ message } + ' from Marseille'"></p>
+	<p th:text="| ${ message } from Marseille |"></p>
+	<!-- affiche Hello World! from Marseille -->
+	<!-- <p th:text="’Bonjour ’ + |${ personne.prenom } ${personne.nom } |"></p> -->
+	<p th:text="| Bonjour ${ personne.prenom } ${personne.nom } |"></p>
+	<!-- affiche Bonjour john wick -->
+
+	<div th:if="${ message.length() >= 15 }" th:text="long"></div>
+	<div th:unless="${ message.length() >= 15 }" th:text="court"></div>
+	<!-- affiche court -->
+
+	<div th:if="${ message.length() } >= 15" th:text="long"></div>
+	<div th:unless="${ message.length() } >= 15" th:text="court"></div>
+	<!-- affiche court -->
+
+	<div th:text="${ message.length() <= 15 } ? 'court' : 'long'" />
+	<!-- affiche court -->
+
+	<p th:text="${ msg } ?: ${ message }"></p>
+	<!-- default value ! (value) ?: (defaultValue) -->
+	<!-- affiche Hello World! -->
+
+	<br>
+	<div th:each="perso : ${ personnes }">
+		<span th:text="${ perso.nom }"></span> <span
+			th:text="${ perso.prenom }"></span>
+	</div>
+
+	<br>
+	<div th:each="perso, status : ${ personnes }">
+		<span th:text="${ status.index }"></span> <span
+			th:text="${ status.count }"></span> <span th:text="${ perso.nom }"></span>
+		<span th:text="${ perso.prenom }"></span>
+	</div>
+
+	<br>
+	<div th:with="variable=${ message.length() }">
+		<p>
+			Le message de bienvenue contient <span th:text="${ variable }"></span>
+			lettres.
+		</p>
+	</div>
+	<!-- Le message de bienvenue contient 12 lettres. -->
+
+	<div
+		th:with="variable=${ message.length() }, parity=${ variable % 2 == 0 ? 'pair' : 'impair' }">
+		<p>
+			Le message de bienvenue contient <span th:text="${ variable }"></span>
+			lettres, soit un nombre <span th:text="${ parity }"> </span> de
+			lettres .
+		</p>
+	</div>
+	<!-- Le message de bienvenue contient 12 lettres, soit un nombre pair de lettres. -->
+
+	<!-- 	<div th:object="${ personne }">
+		<span th:text=" * { #object.num }"></span> 
+		<span th:text=" * { #object.nom }"></span>
+		<span th:text=" ${ personne.prenom }"></span>
+	</div> -->
+	<!-- different ways to call attibuts of class object -->
+
+	<a th:href="@{ thymeleaf }">Thymeleaf</a>
+	<!-- En HTML, <a href=thymeleaf>Thymeleaf</a> -->
+	<br>
+	<a th:href="@{ hello(nom=${ personne.nom }) }">Hello</a>
+	<!-- En HTML, <a href="hello?nom=wick">Hello</a> -->
+	<br>
+	<a th:href="@{ hello/{nom}(nom=${ personne.nom }) }">Hello</a>
+	<!-- En HTML, <a href="hello/wick">Hello</a> -->
+	
+	<br>
+	<!-- <div th:insert="˜{ menu :: fragment }"></div> -->
+	<div th:insert="menu :: fragment"></div>
+	<div th:insert="menu :: #premierMenu"></div>
+	<div th:include="menu :: #premierMenu"></div>
+	<div th:replace="menu :: #premierMenu"></div>
+</body>
+</html>
